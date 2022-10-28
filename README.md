@@ -71,9 +71,9 @@ By default the subtitle files are downloaded into `./downloads/` directory in th
 ./bash.sh -d ./downloads/ 
 ```
 
-The ouput csv is saved as `srt_table.csv` in the root directory.
+The ouput csv is saved as `srt_table.csv` in the root directory. It contains *q_id* and *srt_filepath*
 | q_id | srtfilepath    | 
 | :---:   | :---: | 
-| 1 | ./downloads/1.srt   |
-| 2 | ./downloads/2.srt |
-| 3 | ./downloads/3.srt  |
+| 1 | /Users/deepamminda/Documents/whisper_main/downloads/1.srt |
+| 2 | /Users/deepamminda/Documents/whisper_main/downloads/2.srt |
+| 3 | /Users/deepamminda/Documents/whisper_main/downloads/3.srt |
