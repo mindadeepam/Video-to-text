@@ -50,7 +50,7 @@ def video2mp3(video_filepath, output_ext="mp3"):
                     stderr=subprocess.STDOUT)
     return audio_path
 
-def translate(q_id, video_url, output_dir=None,task="translate", language='en', download_dir=None, vid_extension = '.mp4'):
+def translate(q_id, video_url, download_dir=None, task="translate", language='en', vid_extension = '.mp4'):
 
     # download video
     if(not os.path.exists(download_dir)):
@@ -58,13 +58,11 @@ def translate(q_id, video_url, output_dir=None,task="translate", language='en', 
         runcmd(f"mkdir {download_dir}")
 
     video_name = str(q_id) + vid_extension
-    input_videopath = os.path.join(download_dir, video_name)
-    
+    input_videopath = os.path.join(download_dir, video_name)  
     runcmd(f"wget -O {input_videopath} {video_url}")
      
     # extract audio from video
     audio_path = video2mp3(input_videopath)
-    # print("audio path: ", audio_path)    
     
     # transcribe text from audio 
     options = dict(beam_size=5, best_of=5, language=language, fp16=False)
@@ -109,36 +107,41 @@ def translate(q_id, video_url, output_dir=None,task="translate", language='en', 
 
 def main(params):
     input_csv = params.filepath
-    output_dir = params.outputdir
+    # output_dir = params.outputdir
     download_dir = params.downloaddir
-    print(f"input csv file path : {input_csv} \n output directory : {output_dir}")
+    # print(f"input csv file path : {input_csv} \ndownload directory : {download_dir}")
 
+    # check if input csv filepath is valid
     while not os.path.exists(input_csv) or input_csv[-3:]!='csv':
         if not os.path.exists(input_csv):
             print("input file doesnt exist.")
         elif input_csv[-3:]!='csv':
             print("input file is not a csv file. Enter a csv file path")
         input_csv = input()
-        
+
+    # read csv    
     input_csv = pd.read_csv(input_csv)
 
     if input_csv.index.name == "q_id": 
         input_csv = input_csv.reset_index()
     
-    # print(input_csv)
+    # output csv initialize
     df = pd.DataFrame(columns=["q_id", "srtfilepath"])
     df.astype({"q_id":'str', "srtfilepath":'str'})
     df = df.set_index("q_id")
 
+    # for each row, generate srt file and add its path in output csv
     for _, row in input_csv.iterrows():
-        srt_path = translate(row['q_id'], row['url'], output_dir, download_dir=download_dir)
+        srt_path = translate(row['q_id'], row['url'], download_dir=download_dir)
         df.loc[row["q_id"]] =  os.path.abspath(srt_path)
         if _>3:break
 
-    df.to_csv("./srt_table.csv")
+    # save output csv
+    output_path = "./srt_table.csv"
+    df.to_csv(f"{output_path}")
+    print(f"output csv file saved as {output_path}")
 
-
-    pass
+    return 
 
 
 
@@ -146,7 +149,7 @@ if __name__=='__main__':
     parser = argparse.ArgumentParser(description='use whisper to generate srt files for given video files')
 
     parser.add_argument('-f', '--filepath', help='path of input csv file (q_id, video_link)')
-    parser.add_argument('-d', '--downloaddir', help="download directory for srt files, video and audio files are also downloaded here temporarily")
+    # parser.add_argument('-d', '--downloaddir', help="download directory for srt files, video and audio files are also downloaded here temporarily")
     parser.add_argument('-o','--outputdir', help='output directory for srt files')
     args = parser.parse_args()
     main(args)

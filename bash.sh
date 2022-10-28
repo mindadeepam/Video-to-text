@@ -39,7 +39,7 @@ print_usage() {
 while getopts 'f:o:d:' flag; do
     case "${flag}" in
     f) filepath="${OPTARG}";;
-    o) outputdir="${OPTARG}";;
+    # o) outputdir="${OPTARG}";;
     d) downloaddir="${OPTARG}";;
     *) print_usage 
         ;;
@@ -50,7 +50,7 @@ echo -e "\nrunning main.py..."
 
 python3 main.py \
   --filepath=${filepath} \
-  --outputdir=${outputdir} \
+  # --outputdir=${outputdir} \
   --downloaddir=${downloaddir}
   
   

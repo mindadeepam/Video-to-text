@@ -11,18 +11,23 @@ Generate subtitle files *(.srt)* for videos using <a href="https://github.com/op
     git
 
 ## Setup
+Install git using 
+```bash
+sudo apt-get install git -y
+```
 
 Clone repository using 
 ```bash
 git clone https://github.com/mindadeepam/Video-to-text.git
 ```
+
 Change directory into the repository base folder 
 ```bash
 cd Video_to_text
 ```
 
 To get started, run the *setup.sh* script. 
-*It installs all system reequirements and all required python libraries from requirements.txt.*
+*It installs all system requirements and all required python libraries from requirements.txt.*
     
 ```bash
 # on Ubuntu/Debian
@@ -60,7 +65,7 @@ By default, it will look for input.csv in the root directory. Specify path to in
 ./bash.sh -f ./input.csv 
 ```
 
-By default the subtitle files are downloaded into a subtitle directory in the root folder. Adding `-d <download/dir/path/>` will download all subtitles in the specified directory. *video and auido files are also temporarily downloaded here*
+By default the subtitle files are downloaded into `./subtitles/` directory in the root folder. Adding `-d <download/dir/path/>` will download all subtitles in the specified directory. *(video and auido files are also temporarily downloaded here)*
 
 ```bash    
 ./bash.sh -d ./subtitles/ 
