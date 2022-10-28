@@ -1,2 +1,7 @@
 /videos/*
 **/.DS_Store
+/subtitles/*
+/temp*
+/__pycache__/*
+*.csv
+*.xlsx

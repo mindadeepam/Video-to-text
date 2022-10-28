@@ -1,5 +1,4 @@
-qid,filepath
-0,/Users/deepamminda/Documents/whisper_main/videos/video1.mp4
-1,/Users/deepamminda/Documents/whisper_main/videos/video2.mp4
-2,/Users/deepamminda/Documents/whisper_main/videos/video3.mp4
-3,/Users/deepamminda/Documents/whisper_main/videos/video4.mp4
+q_id,url
+1,https://d3cvwyf9ksu0h5.cloudfront.net/answer-1554740957.mp4
+2,https://d3cvwyf9ksu0h5.cloudfront.net/answer-1556108746.mp4
+3,https://d3cvwyf9ksu0h5.cloudfront.net/QA/9519221/360p.mp4
