@@ -8,6 +8,7 @@ Generate subtitle files *(.srt)* for videos using <a href="https://github.com/op
     ffmpeg
     wget
     bash
+    git
 
 ## Setup
 

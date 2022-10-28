@@ -8,15 +8,19 @@ sudo apt install software-properties-common
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get update
 sudo apt install python3.8 -y
-echo -e "\npython installed/n"
+echo -e "\npython installed\n"
 
-echo -e "\n\ninstalling ffmpeg/n"
+echo -e "\n\ninstalling git"
+sudo apt-get install git -y
+echo -e "\ngit installed\n"
+
+echo -e "\n\ninstalling ffmpeg\n"
 sudo apt-get install ffmpeg -y
-echo -e "\nffmpeg installed/n"
+echo -e "\nffmpeg installed\n"
 
-echo -e "\n\ninstalling wget/n"
+echo -e "\n\ninstalling wget\n"
 sudo apt-get install wget -y
-echo -e "\nwget installed/n"
+echo -e "\nwget installed\n"
 
 install whisper
 echo -e "\n\ninstalling whisper"
