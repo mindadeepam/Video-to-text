@@ -19,7 +19,7 @@ Change directory into the repository base folder
 ```bash
 cd Video_to_text
 ```
----
+
 To get started, run the *setup.sh* script. 
 *It installs all system reequirements and all required python libraries from requirements.txt.*
     
