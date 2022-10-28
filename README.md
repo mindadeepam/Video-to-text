@@ -65,8 +65,15 @@ By default, it will look for input.csv in the root directory. Specify path to in
 ./bash.sh -f ./input.csv 
 ```
 
-By default the subtitle files are downloaded into `./subtitles/` directory in the root folder. Adding `-d <download/dir/path/>` will download all subtitles in the specified directory. *(video and auido files are also temporarily downloaded here)*
+By default the subtitle files are downloaded into `./downloads/` directory in the root folder. Adding `-d <download/dir/path/>` will download all subtitles in the specified directory. *(video and auido files are also temporarily downloaded here)*
 
 ```bash    
-./bash.sh -d ./subtitles/ 
+./bash.sh -d ./downloads/ 
 ```
+
+The ouput csv is saved as `srt_table.csv` in the root directory.
+| q_id | srtfilepath    | 
+| :---:   | :---: | 
+| 1 | ./downloads/1.srt   |
+| 2 | ./downloads/2.srt |
+| 3 | ./downloads/3.srt  |
