@@ -4,10 +4,10 @@
 
 echo -e "\n\ninstalling python 3.8"
 sudo apt-get update 
-sudo apt install software-properties-common
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt-get update
-sudo apt install python3.8 -y
+sudo apt-get upgrade
+sudo apt install software-properties-common -y
+sudo add-apt-repository ppa:deadsnakes/ppa -y
+sudo apt install -y python3.8 python3-pip 
 echo -e "\npython installed\n"
 
 echo -e "\n\ninstalling git"

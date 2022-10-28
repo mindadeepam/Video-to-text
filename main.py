@@ -143,7 +143,6 @@ def main(params):
     return 
 
 
-
 if __name__=='__main__':
     parser = argparse.ArgumentParser(description='use whisper to generate srt files for given video files')
 
