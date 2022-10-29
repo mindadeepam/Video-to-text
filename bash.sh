@@ -18,8 +18,9 @@ while getopts 'f:d:' flag; do
 done
 
 echo -e "\nrunning main.py..."
+echo -e ${filepath} ${downloaddir} 
 
-python main.py \
+python3 main.py \
   --filepath=${filepath} \
   --downloaddir=${downloaddir} 
   # --outputdir=${outputdir} \

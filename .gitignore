@@ -7,3 +7,4 @@
 *.csv
 *.xlsx
 install_python.sh
+dockerfile
